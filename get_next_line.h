@@ -6,7 +6,7 @@
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 09:06:42 by gussoare          #+#    #+#             */
-/*   Updated: 2022/06/03 09:07:42 by gussoare         ###   ########.fr       */
+/*   Updated: 2022/06/06 12:57:48 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@
 #include <stdlib.h>
 
 char	*get_next_line(int fd);
-void	*ft_calloc(size_t count, size_t size);
-void	ft_bzero(void *s, size_t n);
+size_t	ft_strlen(const char *s);
+char	*ft_strchr(const char *s, int c);
+char	*ft_strjoin(char const *s1, char const *s2);
 
 #endif

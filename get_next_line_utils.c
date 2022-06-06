@@ -6,41 +6,65 @@
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 09:13:00 by gussoare          #+#    #+#             */
-/*   Updated: 2022/06/03 09:07:21 by gussoare         ###   ########.fr       */
+/*   Updated: 2022/06/06 12:56:12 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-void	*ft_calloc(size_t count, size_t size)
+char	*ft_strchr(const char *s, int c)
 {
-	void	*p;
+	char	*str;
+	char	found;
+	int		i;
 
-	if (!count || !size)
+	str = (char *) s;
+	found = (char) c;
+	i = 0;
+	while (*str != found)
 	{
-		count = 1;
-		size = 1;
+		if (*str == 0)
+			return (0);
+		str++;
 	}
-	if ((count * size) / count != size)
-		return (0);
-	p = malloc(count * size);
-	if (p == 0)
-		return (0);
-	ft_bzero(p, count * size);
-	return (p);
+	return (str);
 }
 
-void	ft_bzero(void *s, size_t n)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	int				i;
-	unsigned char	*str;
+	char	*result;
+	int		j;
+	int		i;
 
-	str = (unsigned char *)s;
+	if (!s1 || !s2)
+		return (0);
+	result = malloc((ft_strlen(s1) + ft_strlen(s2)) * sizeof(char));
+	if (result == 0)
+		return (0);
 	i = 0;
-	while (n > 0)
+	j = 0;
+	while (s1[i] != 0)
 	{
-		str[i] = 0;
-		n--;
+		result[i + j] = s1[i];
 		i++;
 	}
+	while (s2[j] != 0)
+	{
+		result[i + j] = s2[j];
+		j++;
+	}
+	result[i + j] = 0;
+	return (result);
+}
+
+size_t	ft_strlen(const char *s)
+{
+	size_t	i;
+
+	i = 0;
+	while (s[i] != '\0')
+	{
+		i++;
+	}
+	return (i);
 }
