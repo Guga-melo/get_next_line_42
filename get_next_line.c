@@ -6,7 +6,7 @@
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 09:11:56 by gussoare          #+#    #+#             */
-/*   Updated: 2022/06/06 13:25:57 by gussoare         ###   ########.fr       */
+/*   Updated: 2022/06/07 10:53:44 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ char	*get_next_line(int fd)
 	static char	*backup;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
-		return (NULL);
+		return (0);
 	backup = ft_read_and_backup(fd, backup);
 	if (!backup)
 		return (NULL);
@@ -106,16 +106,20 @@ char	*get_next_line(int fd)
 }
 
 #include <stdio.h>
+#include <fcntl.h>
 
 int	main(void)
 {
 	char	*buf;
+	char	*buf2;
 	int		fd;
 
 	fd = open("teste.txt", O_RDONLY);
 	
 	buf = get_next_line(fd);
+	buf2 = get_next_line(fd);
 	close(fd);
 	printf("%s", buf);
+	printf("%s", buf2);
 	return (0);
 }
