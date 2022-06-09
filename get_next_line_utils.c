@@ -6,7 +6,7 @@
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 09:13:00 by gussoare          #+#    #+#             */
-/*   Updated: 2022/06/07 14:38:09 by gussoare         ###   ########.fr       */
+/*   Updated: 2022/06/08 11:47:11 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,18 +46,12 @@ char	*ft_strjoin(char *s1, char *s2)
 	result = malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
 	if (result == 0)
 		return (0);
-	i = 0;
+	i = -1;
 	j = 0;
-	while (s1[i] != 0)
-	{
+	while (s1[++i] != 0)
 		result[i + j] = s1[i];
-		i++;
-	}
-	while (s2[j] != 0)
-	{
+	while (s2[j++] != 0)
 		result[i + j] = s2[j];
-		j++;
-	}
 	result[i + j] = 0;
 	free(s1);
 	return (result);
