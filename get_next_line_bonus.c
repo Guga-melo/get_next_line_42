@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 09:11:56 by gussoare          #+#    #+#             */
-/*   Updated: 2022/06/09 11:11:39 by gussoare         ###   ########.fr       */
+/*   Updated: 2022/06/09 14:31:43 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,15 +95,15 @@ char	*ft_read_and_backup(int fd, char *backup)
 char	*get_next_line(int fd)
 {
 	char		*line;
-	static char	*backup;
+	static char	*backup[256];
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	backup = ft_read_and_backup(fd, backup);
-	if (!backup)
+	backup[fd] = ft_read_and_backup(fd, backup[fd]);
+	if (!backup[fd])
 		return (NULL);
-	line = ft_find_line(backup);
-	backup = ft_backup(backup);
+	line = ft_find_line(backup[fd]);
+	backup[fd] = ft_backup(backup[fd]);
 	return (line);
 }
 
