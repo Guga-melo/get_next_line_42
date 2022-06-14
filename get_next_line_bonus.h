@@ -6,12 +6,12 @@
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 14:28:41 by gussoare          #+#    #+#             */
-/*   Updated: 2022/06/09 14:28:57 by gussoare         ###   ########.fr       */
+/*   Updated: 2022/06/14 11:26:09 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#ifndef GET_NEXT_LINE_BONUS_H
+# define GET_NEXT_LINEBONUS__H
 # include <unistd.h>
 # include <stdlib.h>
 

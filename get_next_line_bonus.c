@@ -6,11 +6,11 @@
 /*   By: gussoare <gussoare@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 09:11:56 by gussoare          #+#    #+#             */
-/*   Updated: 2022/06/09 14:31:43 by gussoare         ###   ########.fr       */
+/*   Updated: 2022/06/14 11:23:05 by gussoare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*ft_find_line(char *backup)
 {
@@ -112,16 +112,30 @@ char	*get_next_line(int fd)
 
 int	main(void)
 {
-	char	*buf;
-	char	*buf2;
-	int		fd;
-
-	fd = open("teste.txt", O_RDONLY);
-	
-	buf = get_next_line(fd);
-	buf2 = get_next_line(fd);
-	close(fd);
-	printf("%s", buf);
-	printf("%s", buf2);
+	char	*line;
+	int		i;
+	int		fd1;
+	int		fd2;
+	int		fd3;
+	fd1 = open("test.txt", O_RDONLY);
+	fd2 = open("test2.txt", O_RDONLY);
+	fd3 = open("test3.txt", O_RDONLY);
+	i = 1;
+	while (i < 7)
+	{
+		line = get_next_line(fd1);
+		printf("line [%02d]: %s"\n, i, line);
+		free(line);
+		line = get_next_line(fd2);
+		printf("line [%02d]: %s\n", i, line);
+		free(line);
+		line = get_next_line(fd3);
+		printf("line [%02d]: %s\n", i, line);
+		free(line);
+		i++;
+	}
+	close(fd1);
+	close(fd2);
+	close(fd3);
 	return (0);
 }*/
